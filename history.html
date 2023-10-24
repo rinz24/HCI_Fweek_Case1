@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      text-align: center;
+      padding: 20px;
+    }
+
+    h1 {
+      background-color: #0099cc;
+      color: #fff;
+      padding: 10px;
+      border-radius: 10px;
+    }
+
+    button {
+      background-color: #0099cc;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+      margin: 5px;
+      border-radius: 5px;
+    }
+
+    button:hover {
+      background-color: #0077aa;
+    }
+
+    #history {
+      text-align: left;
+      padding: 20px;
+      background-color: #fff;
+      border: 1px solid #0099cc;
+      border-radius: 10px;
+      max-width: 400px;
+      margin: 20px auto;
+    }
+
+    #balance {
+      margin-top: 20px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <h1>Flazz Card Usage History</h1>
+  <button onclick="addMoney()">Add Money</button>
+  <button onclick="useMoney()">Use Money</button>
+
+  <div id="history">
+  </div>
+
+  <div id="balance">
+    <strong>Remaining Balance:</strong> <span id="balanceAmount">0</span> IDR
+  </div>
+
+  <button onclick="goBack()">Back to Home page</button>
+
+  <script>
+    const history = [];
+    let balanceAmount = 0;
+    const balanceSpan = document.getElementById("balanceAmount");
+
+    function addMoney() {
+      const amount = parseFloat(prompt("Enter the amount to add (in IDR):"));
+      if (!isNaN(amount)) {
+        const timestamp = new Date().toLocaleString();
+        history.push({ type: "Add Money", amount, timestamp });
+        balanceAmount += amount;
+        updateHistory();
+        updateBalance();
+      }
+    }
+
+    function useMoney() {
+      const amount = parseFloat(prompt("Enter the amount to use (in IDR):"));
+      if (!isNaN(amount)) {
+        if (balanceAmount >= amount) {
+          const timestamp = new Date().toLocaleString();
+          history.push({ type: "Use Money", amount, timestamp });
+          balanceAmount -= amount;
+          updateHistory();
+          updateBalance();
+        } else {
+          alert("Not enough balance. Current balance: " + balanceAmount + " IDR");
+        }
+      }
+    }
+
+    function updateHistory() {
+      const historyDiv = document.getElementById("history");
+      historyDiv.innerHTML = "";
+
+      for (const transaction of history) {
+        const transactionDiv = document.createElement("div");
+        const formattedAmount = new Intl.NumberFormat("id-ID", {
+          style: "currency",
+          currency: "IDR",
+        }).format(transaction.amount);
+
+        transactionDiv.textContent = `${transaction.type}: ${formattedAmount} at ${transaction.timestamp}`;
+        historyDiv.appendChild(transactionDiv);
+      }
+    }
+
+    function updateBalance() {
+      balanceSpan.textContent = balanceAmount;
+    }
+
+    function goBack() {
+      window.location.href = "index.html";
+    }
+  </script>
+</body>
+</html>

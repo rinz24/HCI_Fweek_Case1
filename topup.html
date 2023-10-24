@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Top Up Your Flazz BCA Card</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #ffffff;
+    }
+
+    .menu ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .menu li {
+      margin: 10px 0;
+    }
+
+    label {
+      cursor: pointer;
+      color: #13b6ed;
+      text-decoration: underline;
+    }
+
+    .dropdown-input {
+      display: none;
+    }
+
+    .instructions {
+      display: none;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s ease;
+      background-color: #fff;
+      border: 1px solid #0099cc;
+      border-radius: 10px;
+      padding: 10px;
+    }
+
+    .dropdown-input:checked + label + .instructions {
+      display: block;
+      max-height: 1000px;
+      transition: max-height 0.5s ease;
+    }
+
+    .dropdown-input {
+      display: none;
+    }
+
+    .dropdown-input:checked + label::before {
+      content: '\25A0';
+      display: inline-block;
+      font-size: 18px;
+      margin-right: 5px;
+    }
+
+    .dropdown-input + label::before {
+      content: '\25A1';
+      display: inline-block;
+      font-size: 18px;
+      margin-right: 5px;
+    }
+
+    h1 {
+        background: linear-gradient(0deg, black, navy);
+        color: #fff;
+        padding: 10px;
+        border-radius: 10px;
+        text-align: center;
+    }
+
+    h2 {
+        background: linear-gradient(0deg, rgb(0, 195, 255), rgb(47, 1, 85));
+        color: #fff;
+        padding: 10px;
+        border-radius: 10px;
+        text-align: center;
+    }
+  </style>
+</head>
+<body>
+<div class="header">
+  <h1>Top Up Your Flazz BCA Card</h1>
+</div>
+<div class="menu">
+  <ul>
+    <li>
+      <input type="checkbox" id="atm" class="dropdown-input">
+      <label for="atm">ATM Top-Up</label>
+      <div class="instructions">
+        <h2>Steps to Top Up Your Flazz BCA Card at an ATM</h2>
+        <ol>
+          <li>Insert your Flazz BCA card into the ATM machine.</li>
+          <li>Follow the on-screen instructions to select "Top-Up" or "Prepaid Card Reload."</li>
+          <li>Enter the desired top-up amount and confirm the transaction.</li>
+          <li>Collect your card and transaction receipt.</li>
+        </ol>
+      </div>
+    </li>
+    <li>
+      <input type="checkbox" id="mobileApp" class="dropdown-input">
+      <label for="mobileApp">Mobile App</label>
+      <div class="instructions">
+        <h2>Steps to Top Up Your Flazz BCA Card via Mobile App</h2>
+        <ol>
+          <li>Open the BCA mobile app.</li>
+          <li>Log in to your account.</li>
+          <li>Select the "Top-Up Flazz" option.</li>
+          <li>Enter your Flazz card number and the top-up amount.</li>
+          <li>Confirm the top-up transaction.</li>
+        </ol>
+      </div>
+    </li>
+    <li>
+      <input type="checkbox" id="merchantShop" class="dropdown-input">
+      <label for="merchantShop">Merchant Shop</label>
+      <div class="instructions">
+        <h2>Steps to Top Up Your Flazz BCA Card at a Merchant Shop</h2>
+        <ol>
+          <li>Visit a participating Flazz merchant (e.g., convenience stores).</li>
+          <li>Ask the cashier for a Flazz top-up.</li>
+          <li>Provide your Flazz card to the cashier.</li>
+          <li>Specify the top-up amount.</li>
+          <li>Pay the cashier, and your Flazz card will be topped up.</li>
+        </ol>
+      </div>
+    </li>
+    <li>
+      <input type="checkbox" id="branch" class="dropdown-input">
+      <label for="branch">Branch</label>
+      <div class="instructions">
+        <h2>Steps to Top Up Your Flazz BCA Card at a Nearby Branch</h2>
+        <ol>
+          <li>Visit a BCA bank branch near you.</li>
+          <li>Queue at the customer service desk.</li>
+          <li>Provide your Flazz card and inform the staff that you want to top up your card.</li>
+          <li>Specify the top-up amount and complete the payment.</li>
+          <li>Your Flazz card will be topped up at the bank branch.</li>
+        </ol>
+      </div>
+    </li>
+  </ul>
+</div>
+<div class "content">
+  <h2>Welcome to the Flazz BCA Top-Up Guide!</h2>
+  <p>Choose a method from the menu to learn how to top up your Flazz BCA card using different options.</p>
+</div>
+<div class="footer">
+  <p>&copy; 2023 YourWebsite.com</p>
+</div>
+</body>
+</html>
